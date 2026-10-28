@@ -16,12 +16,13 @@ export function LeadForm({ idPrefix = "lead" }: LeadFormProps) {
   const [program, setProgram] = useState(defaultCourse);
   const [error, setError] = useState("");
   const [done, setDone] = useState(false);
+  const [loading, setLoading] = useState(false);
 
   useEffect(() => {
     setProgram(defaultCourse);
   }, [defaultCourse]);
 
-  function onSubmit(event: FormEvent<HTMLFormElement>) {
+  async function onSubmit(event: FormEvent<HTMLFormElement>) {
     event.preventDefault();
     setError("");
     const digits = phone.replace(/\D/g, "");
@@ -33,8 +34,31 @@ export function LeadForm({ idPrefix = "lead" }: LeadFormProps) {
       setError("Enter a valid 10-digit mobile number.");
       return;
     }
-    setDone(true);
-    markSubmitted();
+
+    setLoading(true);
+    try {
+      const res = await fetch("/api/leads", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({
+          name: name.trim(),
+          phone: digits,
+          program,
+          source,
+        }),
+      });
+      const data = (await res.json()) as { error?: string };
+      if (!res.ok) {
+        setError(data.error || "Could not submit. Please try again.");
+        return;
+      }
+      setDone(true);
+      markSubmitted();
+    } catch {
+      setError("Network error. Please try again.");
+    } finally {
+      setLoading(false);
+    }
   }
 
   if (done || submitted) {
@@ -132,11 +156,12 @@ export function LeadForm({ idPrefix = "lead" }: LeadFormProps) {
         and authorize advisors to connect via call/WhatsApp.
       </p>
       <button
-        className="mt-1 flex w-full items-center justify-center gap-2 rounded-xl bg-gradient-to-r from-amber-400 to-yellow-500 py-3.5 text-sm font-bold uppercase tracking-[0.04em] text-neutral-950 shadow-gold-glow transition active:scale-[0.98]"
+        className="mt-1 flex w-full items-center justify-center gap-2 rounded-xl bg-gradient-to-r from-amber-400 to-yellow-500 py-3.5 text-sm font-bold uppercase tracking-[0.04em] text-neutral-950 shadow-gold-glow transition active:scale-[0.98] disabled:opacity-60"
+        disabled={loading}
         type="submit"
       >
-        Submit & Claim Scholarship
-        <IconArrow className="h-4 w-4" />
+        {loading ? "Submitting…" : "Submit & Claim Scholarship"}
+        {!loading ? <IconArrow className="h-4 w-4" /> : null}
       </button>
     </form>
   );
