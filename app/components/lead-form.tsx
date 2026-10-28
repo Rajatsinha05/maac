@@ -43,10 +43,10 @@ export function LeadForm({ idPrefix = "lead" }: LeadFormProps) {
         <div className="mx-auto mb-3 flex h-12 w-12 items-center justify-center rounded-full bg-amber-400 text-black">
           <IconCheck className="h-6 w-6" />
         </div>
-        <h3 className="font-display text-lg font-black text-white">
+        <h3 className="text-display text-lg font-bold text-white">
           Application received
         </h3>
-        <p className="mt-1 text-xs leading-relaxed text-zinc-400">
+        <p className="text-body mt-1 text-sm text-zinc-400">
           A MAAC career counselor will call you shortly to confirm scholarship
           eligibility and the nearest centre.
         </p>
@@ -55,14 +55,14 @@ export function LeadForm({ idPrefix = "lead" }: LeadFormProps) {
   }
 
   const field =
-    "w-full rounded-xl border border-zinc-700/80 bg-zinc-900 px-3.5 py-2.5 text-xs text-white placeholder-zinc-500 outline-none transition focus:border-amber-400 focus:ring-1 focus:ring-amber-400";
+    "w-full rounded-xl border border-zinc-700/80 bg-zinc-900 px-3.5 py-3 text-sm text-white placeholder-zinc-500 outline-none transition focus:border-amber-400 focus:ring-1 focus:ring-amber-400";
 
   return (
     <form className="space-y-3" onSubmit={onSubmit} noValidate>
       <input type="hidden" name="source" value={source} />
       <div>
         <label
-          className="mb-1 block text-[11px] font-semibold uppercase tracking-wider text-zinc-300"
+          className="mb-1.5 block text-xs font-semibold uppercase tracking-[0.04em] text-zinc-300"
           htmlFor={`${idPrefix}-name`}
         >
           Full Name *
@@ -78,13 +78,13 @@ export function LeadForm({ idPrefix = "lead" }: LeadFormProps) {
       </div>
       <div>
         <label
-          className="mb-1 block text-[11px] font-semibold uppercase tracking-wider text-zinc-300"
+          className="mb-1.5 block text-xs font-semibold uppercase tracking-[0.04em] text-zinc-300"
           htmlFor={`${idPrefix}-phone`}
         >
           Mobile Number *
         </label>
         <div className="relative">
-          <span className="pointer-events-none absolute left-3 top-1/2 -translate-y-1/2 text-xs font-semibold text-zinc-500">
+          <span className="pointer-events-none absolute left-3.5 top-1/2 -translate-y-1/2 text-sm font-semibold text-zinc-500">
             +91
           </span>
           <input
@@ -100,7 +100,7 @@ export function LeadForm({ idPrefix = "lead" }: LeadFormProps) {
       </div>
       <div>
         <label
-          className="mb-1 block text-[11px] font-semibold uppercase tracking-wider text-zinc-300"
+          className="mb-1.5 block text-xs font-semibold uppercase tracking-[0.04em] text-zinc-300"
           htmlFor={`${idPrefix}-program`}
         >
           Select Program *
@@ -117,9 +117,9 @@ export function LeadForm({ idPrefix = "lead" }: LeadFormProps) {
         </select>
       </div>
       {error ? (
-        <p className="text-[11px] font-semibold text-red-400">{error}</p>
+        <p className="text-xs font-semibold text-red-400">{error}</p>
       ) : null}
-      <p className="pt-1 text-[10px] leading-normal text-zinc-400">
+      <p className="text-body pt-1 text-xs text-zinc-400">
         By submitting, you agree to MAAC&apos;s{" "}
         <a
           className="text-amber-400 underline"
@@ -132,7 +132,7 @@ export function LeadForm({ idPrefix = "lead" }: LeadFormProps) {
         and authorize advisors to connect via call/WhatsApp.
       </p>
       <button
-        className="mt-1 flex w-full items-center justify-center gap-2 rounded-xl bg-gradient-to-r from-amber-400 to-yellow-500 py-3.5 text-sm font-extrabold uppercase tracking-wider text-neutral-950 shadow-gold-glow transition active:scale-[0.98]"
+        className="mt-1 flex w-full items-center justify-center gap-2 rounded-xl bg-gradient-to-r from-amber-400 to-yellow-500 py-3.5 text-sm font-bold uppercase tracking-[0.04em] text-neutral-950 shadow-gold-glow transition active:scale-[0.98]"
         type="submit"
       >
         Submit & Claim Scholarship

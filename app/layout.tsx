@@ -1,11 +1,12 @@
 import type { Metadata } from "next";
-import { Plus_Jakarta_Sans, Syne } from "next/font/google";
+import { Outfit, Plus_Jakarta_Sans } from "next/font/google";
 import "./globals.css";
 
-const syne = Syne({
-  variable: "--font-syne",
+const outfit = Outfit({
+  variable: "--font-outfit",
   subsets: ["latin"],
   display: "swap",
+  weight: ["500", "600", "700", "800"],
 });
 
 const jakarta = Plus_Jakarta_Sans({
@@ -34,9 +35,9 @@ export default function RootLayout({ children }: LayoutProps<"/">) {
   return (
     <html
       lang="en"
-      className={`${syne.variable} ${jakarta.variable} h-full scroll-smooth antialiased`}
+      className={`${outfit.variable} ${jakarta.variable} h-full scroll-smooth antialiased`}
     >
-      <body className="min-h-full flex flex-col bg-brand-dark font-sans text-zinc-100">
+      <body className="min-h-full flex flex-col bg-brand-dark font-sans text-[15px] leading-relaxed text-zinc-100 antialiased sm:text-base">
         {children}
       </body>
     </html>

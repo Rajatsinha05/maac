@@ -16,7 +16,7 @@
   --color-brand-card: #121018;
   --color-brand-border: #2a2433;
   --font-sans: var(--font-jakarta);
-  --font-display: var(--font-syne);
+  --font-display: var(--font-outfit);
   --shadow-gold-glow: 0 0 28px -4px rgb(245 158 11 / 0.5);
   --shadow-crimson-glow: 0 0 30px -4px rgb(192 9 43 / 0.5);
 }
@@ -46,7 +46,27 @@ body::before {
 }
 
 .font-display {
-  font-family: var(--font-syne), Syne, Outfit, sans-serif;
+  font-family: var(--font-outfit), Outfit, "Plus Jakarta Sans", sans-serif;
+  font-stretch: normal;
+  font-synthesis: none;
+  text-rendering: optimizeLegibility;
+}
+
+.text-display {
+  font-family: var(--font-outfit), Outfit, "Plus Jakarta Sans", sans-serif;
+  font-stretch: normal;
+  font-synthesis: none;
+  letter-spacing: -0.025em;
+  line-height: 1.18;
+  text-wrap: balance;
+  overflow-wrap: break-word;
+  hyphens: manual;
+}
+
+.text-body {
+  line-height: 1.65;
+  text-wrap: pretty;
+  overflow-wrap: break-word;
 }
 
 .hide-scrollbar::-webkit-scrollbar {
@@ -71,6 +91,9 @@ body::before {
   background-clip: text;
   -webkit-text-fill-color: transparent;
   color: transparent;
+  display: inline;
+  box-decoration-break: clone;
+  -webkit-box-decoration-break: clone;
 }
 
 .badge-pulse {
@@ -139,12 +162,13 @@ body::before {
   border-radius: 999px;
   border: 1px solid rgb(251 191 36 / 0.22);
   background: rgb(251 191 36 / 0.08);
-  padding: 0.25rem 0.7rem;
-  font-size: 10px;
-  font-weight: 800;
-  letter-spacing: 0.16em;
+  padding: 0.3rem 0.75rem;
+  font-size: 0.6875rem;
+  font-weight: 700;
+  letter-spacing: 0.06em;
   text-transform: uppercase;
   color: #fbbf24;
+  white-space: nowrap;
 }
 
 .filmstrip {

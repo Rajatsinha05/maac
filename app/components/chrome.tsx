@@ -33,14 +33,14 @@ export function LeadPopup() {
         </button>
         <div className="mb-3 inline-flex items-center gap-2 rounded-full border border-amber-500/40 bg-amber-500/10 px-3 py-1">
           <span className="h-2 w-2 animate-ping rounded-full bg-amber-400" />
-          <span className="text-[10px] font-extrabold uppercase tracking-widest text-amber-300">
+          <span className="text-[0.6875rem] font-semibold uppercase tracking-[0.06em] text-amber-300">
             Auto scholarship desk
           </span>
         </div>
-        <h2 id="popup-title" className="font-display text-2xl font-black text-white sm:text-3xl">
+        <h2 id="popup-title" className="text-display text-2xl font-bold text-white sm:text-3xl">
           Claim up to <span className="gold-gradient-text">35% off</span>
         </h2>
-        <p className="mt-1 mb-4 text-sm leading-relaxed text-zinc-400">
+        <p className="text-body mt-1.5 mb-4 text-sm text-zinc-400">
           Bharat Creator Scholarship is open till 31 Oct 2026. Drop your details
           and a counselor will lock your seat
           {source === "popup" ? " — this window popped up so you don’t miss it." : "."}
@@ -64,7 +64,7 @@ export function StickyBottomBar() {
           Call
         </a>
         <button
-          className="flex flex-[1.35] items-center justify-center gap-1.5 rounded-full bg-gradient-to-r from-amber-400 to-yellow-500 py-3 text-xs font-black uppercase tracking-wider text-black shadow-gold-glow sm:text-sm"
+          className="flex flex-[1.35] items-center justify-center gap-1.5 rounded-full bg-gradient-to-r from-amber-400 to-yellow-500 py-3 text-xs font-bold uppercase tracking-[0.04em] text-black shadow-gold-glow sm:text-sm"
           onClick={() => openLead({ source: "cta" })}
           type="button"
         >

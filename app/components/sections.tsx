@@ -97,13 +97,15 @@ function SectionHead({
 }) {
   return (
     <div className="mb-8 flex flex-col gap-4 sm:flex-row sm:items-end sm:justify-between">
-      <div className="max-w-2xl">
+      <div className="max-w-2xl min-w-0">
         <span className="kicker">{kicker}</span>
-        <h2 className="mt-3 font-display text-3xl font-extrabold tracking-tight text-white sm:text-4xl lg:text-[2.75rem] lg:leading-[1.05]">
+        <h2 className="text-display mt-3 text-[1.75rem] font-bold text-white sm:text-4xl lg:text-[2.5rem]">
           {title}
         </h2>
         {copy ? (
-          <p className="mt-2 max-w-xl text-sm leading-relaxed text-zinc-400">{copy}</p>
+          <p className="text-body mt-2.5 max-w-xl text-[0.9375rem] text-zinc-400 sm:text-base">
+            {copy}
+          </p>
         ) : null}
       </div>
       {action}
@@ -169,43 +171,43 @@ export function Statement() {
   ];
   return (
     <section className="relative overflow-hidden px-4 py-14 sm:px-6 sm:py-20 lg:px-10" id="think">
-      <p className="pointer-events-none absolute -right-6 top-10 font-display text-[18vw] font-extrabold leading-none text-white/[0.035] sm:text-[9rem]">
+      <p className="pointer-events-none absolute -right-4 top-8 font-display text-[22vw] font-bold leading-none text-white/[0.03] sm:text-[8rem] sm:-right-6 sm:top-10">
         MAAC
       </p>
       <div className="relative z-10 mx-auto max-w-6xl">
         <span className="kicker">Empower your future</span>
-        <h2 className="mt-4 max-w-4xl font-display text-[2.15rem] font-extrabold leading-[1.05] tracking-tight text-white sm:text-5xl lg:text-6xl">
+        <h2 className="text-display mt-4 max-w-3xl text-[1.85rem] font-bold text-white sm:text-5xl lg:text-[3.25rem]">
           Creative careers that click.
           <span className="gold-gradient-text"> Think MAAC.</span>
         </h2>
-        <p className="mt-4 max-w-2xl text-sm leading-relaxed text-zinc-400 sm:text-base">
+        <p className="text-body mt-4 max-w-2xl text-[0.9375rem] text-zinc-400 sm:text-base">
           Empower your future with skills that matter. Train in animation, VFX,
           gaming, and digital content creation with expert-led courses that
           prepare you for real industry success.
         </p>
-        <div className="mt-8 grid grid-cols-3 gap-2 sm:gap-3">
+        <div className="mt-8 grid grid-cols-1 gap-3 sm:grid-cols-3 sm:gap-3">
           {panels.map((panel, index) => (
             <figure
               key={panel.label}
-              className={`relative overflow-hidden rounded-[22px] border border-white/10 ${
-                index === 1 ? "mt-4 sm:mt-8" : index === 2 ? "mt-2 sm:mt-3" : ""
+              className={`relative min-w-0 overflow-hidden rounded-[22px] border border-white/10 ${
+                index === 1 ? "sm:mt-8" : index === 2 ? "sm:mt-3" : ""
               }`}
             >
-              <div className="relative h-36 sm:h-56 lg:h-72">
+              <div className="relative h-44 sm:h-56 lg:h-72">
                 <Image
                   alt={panel.label}
                   className="object-cover"
                   src={panel.src}
                   fill
-                  sizes="33vw"
+                  sizes="(max-width: 640px) 100vw, 33vw"
                 />
                 <div className="absolute inset-0 bg-gradient-to-t from-black via-black/20 to-transparent" />
               </div>
               <figcaption className="absolute bottom-3 left-3 right-3">
-                <span className="block text-[10px] font-bold uppercase tracking-widest text-amber-300">
+                <span className="block text-[0.6875rem] font-semibold uppercase tracking-[0.08em] text-amber-300">
                   {panel.tag}
                 </span>
-                <span className="font-display text-sm font-bold text-white sm:text-lg">
+                <span className="font-display text-base font-bold text-white sm:text-lg">
                   {panel.label}
                 </span>
               </figcaption>
@@ -214,14 +216,14 @@ export function Statement() {
         </div>
         <div className="mt-8 flex flex-col gap-3 sm:flex-row sm:items-center">
           <button
-            className="inline-flex items-center justify-center gap-2 rounded-full bg-gradient-to-r from-amber-400 via-yellow-500 to-amber-500 px-6 py-3.5 text-sm font-extrabold uppercase tracking-wide text-black shadow-gold-glow"
+            className="inline-flex items-center justify-center gap-2 rounded-full bg-gradient-to-r from-amber-400 via-yellow-500 to-amber-500 px-6 py-3.5 text-sm font-bold tracking-[0.04em] text-black shadow-gold-glow uppercase"
             onClick={() => openLead({ source: "cta" })}
             type="button"
           >
             Enquire now
             <IconArrow className="h-4 w-4" />
           </button>
-          <p className="text-xs leading-relaxed text-zinc-500 sm:max-w-sm">
+          <p className="text-body text-sm text-zinc-500 sm:max-w-sm">
             From exclusive workshops to high-impact masterclasses, MAAC events
             hone your craft and build a portfolio that stands out.
           </p>
@@ -247,9 +249,9 @@ export function Usps() {
               >
                 <Icon className="h-4 w-4" />
               </div>
-              <div>
-                <div className="text-xs font-bold text-white">{usp.title}</div>
-                <div className="text-[10px] text-zinc-400">{usp.subtitle}</div>
+              <div className="min-w-0">
+                <div className="text-sm font-semibold leading-snug text-white">{usp.title}</div>
+                <div className="text-xs leading-snug text-zinc-400">{usp.subtitle}</div>
               </div>
             </div>
           );
@@ -313,10 +315,10 @@ export function Recruiters() {
               className="flex items-center justify-between rounded-xl border border-zinc-800 bg-zinc-900/80 p-3 shadow-lg"
             >
               <div>
-                <div className="font-display text-xl font-black text-amber-400">
+                <div className="font-display text-lg font-bold text-amber-400 sm:text-xl">
                   {item.stat}
                 </div>
-                <div className="text-[10px] font-semibold uppercase tracking-wider text-zinc-400">
+                <div className="text-[0.6875rem] font-semibold uppercase tracking-[0.04em] text-zinc-400">
                   {item.label}
                 </div>
               </div>
@@ -333,9 +335,9 @@ export function Recruiters() {
             {[...studios, ...studios].map((studio, index) => (
               <div
                 key={`${studio}-${index}`}
-                className="flex h-12 w-32 flex-shrink-0 items-center justify-center rounded-xl border border-zinc-800 bg-zinc-900 p-1 text-center"
+                className="flex h-12 w-36 flex-shrink-0 items-center justify-center rounded-xl border border-zinc-800 bg-zinc-900 px-2 py-1 text-center"
               >
-                <span className="text-[10px] font-extrabold uppercase tracking-wider text-zinc-300">
+                <span className="text-[0.6875rem] font-semibold leading-snug text-zinc-300">
                   {studio}
                 </span>
               </div>
@@ -345,9 +347,9 @@ export function Recruiters() {
             {[...studios].reverse().concat([...studios].reverse()).map((studio, index) => (
               <div
                 key={`rev-${studio}-${index}`}
-                className="flex h-12 w-32 flex-shrink-0 items-center justify-center rounded-xl border border-zinc-800/80 bg-zinc-950 p-1 text-center"
+                className="flex h-12 w-36 flex-shrink-0 items-center justify-center rounded-xl border border-zinc-800/80 bg-zinc-950 px-2 py-1 text-center"
               >
-                <span className="text-[10px] font-extrabold uppercase tracking-wider text-zinc-400">
+                <span className="text-[0.6875rem] font-semibold leading-snug text-zinc-400">
                   {studio}
                 </span>
               </div>
@@ -366,31 +368,31 @@ export function Pathways() {
       <div className="mx-auto max-w-6xl">
         <div className="mb-8 text-center">
           <span className="kicker">Newly launched · Dual pathways</span>
-          <h2 className="mt-4 font-display text-3xl font-extrabold tracking-tight text-white sm:text-5xl">
+          <h2 className="text-display mt-4 text-[1.75rem] font-bold text-white sm:text-5xl">
             CAREER<span className="text-amber-400">X</span>
             <span className="mx-2 text-zinc-600">&</span>
             CREATOR<span className="text-red-500">X</span>
           </h2>
-          <p className="mx-auto mt-3 max-w-2xl text-sm leading-relaxed text-zinc-400">
+          <p className="text-body mx-auto mt-3 max-w-2xl text-[0.9375rem] text-zinc-400 sm:text-base">
             Industry co-curated programs that equip you for studios and the
             creator economy — animation, VFX, gaming, and digital content.
           </p>
         </div>
         <div className="grid gap-4 md:grid-cols-2">
-          <article className="glass-card lift-card relative overflow-hidden rounded-[28px] border-l-4 border-l-amber-500 p-6 shadow-xl sm:p-7">
+          <article className="glass-card lift-card relative overflow-hidden rounded-[28px] border-l-4 border-l-amber-500 p-5 shadow-xl sm:p-7">
             <div className="pointer-events-none absolute -bottom-8 -right-8 h-28 w-28 rounded-full bg-amber-500/10 blur-2xl" />
-            <p className="pointer-events-none absolute right-3 top-2 font-display text-7xl font-extrabold text-amber-400/10">
+            <p className="pointer-events-none absolute right-3 top-2 font-display text-6xl font-bold text-amber-400/10 sm:text-7xl">
               X
             </p>
-            <div className="mb-3 flex items-center justify-between">
-              <span className="font-display text-2xl font-extrabold italic tracking-wider text-white">
+            <div className="mb-3 flex flex-wrap items-center justify-between gap-2">
+              <span className="font-display text-xl font-bold tracking-tight text-white sm:text-2xl">
                 CAREER<span className="text-amber-400">X</span>
               </span>
-              <span className="rounded-full border border-amber-500/30 bg-amber-500/10 px-2.5 py-0.5 text-[10px] font-bold uppercase text-amber-300">
+              <span className="rounded-full border border-amber-500/30 bg-amber-500/10 px-2.5 py-0.5 text-[0.6875rem] font-semibold uppercase tracking-[0.04em] text-amber-300">
                 Studio aligned
               </span>
             </div>
-            <p className="mb-4 text-sm font-medium text-zinc-300">
+            <p className="text-body mb-4 text-sm font-medium text-zinc-300 sm:text-[0.9375rem]">
               A 1st of its kind, industry-led, studio-aligned learning program for
               blockbuster VFX, 3D, and AAA gaming studios.
             </p>
@@ -423,20 +425,20 @@ export function Pathways() {
               </button>
             </div>
           </article>
-          <article className="glass-card lift-card relative overflow-hidden rounded-[28px] border-l-4 border-l-red-500 p-6 shadow-xl sm:p-7">
+          <article className="glass-card lift-card relative overflow-hidden rounded-[28px] border-l-4 border-l-red-500 p-5 shadow-xl sm:p-7">
             <div className="pointer-events-none absolute -bottom-8 -right-8 h-28 w-28 rounded-full bg-red-500/15 blur-2xl" />
-            <p className="pointer-events-none absolute right-3 top-2 font-display text-7xl font-extrabold text-red-500/10">
+            <p className="pointer-events-none absolute right-3 top-2 font-display text-6xl font-bold text-red-500/10 sm:text-7xl">
               X
             </p>
-            <div className="mb-3 flex items-center justify-between">
-              <span className="font-display text-2xl font-extrabold italic tracking-wider text-white">
+            <div className="mb-3 flex flex-wrap items-center justify-between gap-2">
+              <span className="font-display text-xl font-bold tracking-tight text-white sm:text-2xl">
                 CREATOR<span className="text-red-500">X</span>
               </span>
-              <span className="rounded-full border border-red-500/30 bg-red-500/15 px-2.5 py-0.5 text-[10px] font-bold uppercase text-red-300">
+              <span className="rounded-full border border-red-500/30 bg-red-500/15 px-2.5 py-0.5 text-[0.6875rem] font-semibold uppercase tracking-[0.04em] text-red-300">
                 Create · Collaborate · Grow
               </span>
             </div>
-            <p className="mb-4 text-sm font-medium text-zinc-300">
+            <p className="text-body mb-4 text-sm font-medium text-zinc-300 sm:text-[0.9375rem]">
               Become a studio-ready artist and an independent creative force —
               for YouTube, freelance, and original IP.
             </p>
@@ -476,11 +478,11 @@ export function Pathways() {
               key={item.code}
               className="rounded-2xl border border-white/8 bg-zinc-900/60 px-4 py-3"
             >
-              <span className="block text-[10px] font-bold uppercase tracking-widest text-amber-400">
+              <span className="block text-[0.6875rem] font-semibold uppercase tracking-[0.06em] text-amber-400">
                 Powered by CareerX | CreatorX
               </span>
               <span className="font-display text-sm font-bold text-white">{item.code}</span>
-              <span className="mt-0.5 block text-[11px] text-zinc-500">{item.track}</span>
+              <span className="mt-0.5 block text-xs text-zinc-500">{item.track}</span>
             </div>
           ))}
         </div>
@@ -541,9 +543,11 @@ export function Courses() {
                 ) : null}
               </div>
               <div className="p-5">
-                <div className="mb-1 flex items-center justify-between gap-2">
-                  <h3 className="font-display text-xl font-bold text-white">{course.title}</h3>
-                  <span className="flex items-center gap-1 text-xs font-semibold text-amber-400">
+                <div className="mb-1 flex items-start justify-between gap-2">
+                  <h3 className="text-display min-w-0 text-lg font-bold text-white sm:text-xl">
+                    {course.title}
+                  </h3>
+                  <span className="flex flex-shrink-0 items-center gap-1 pt-1 text-xs font-semibold text-amber-400">
                     <IconClock className="h-3 w-3" />
                     {course.duration}
                   </span>
@@ -740,20 +744,20 @@ export function Alumni() {
                     <Image alt={person.name} className="object-cover" src={person.image} fill sizes="48px" />
                   </div>
                   <div>
-                    <h3 className="text-sm font-bold uppercase tracking-wide text-white">
+                    <h3 className="text-sm font-bold text-white">
                       {person.name}
                     </h3>
-                    <p className="text-[10px] uppercase tracking-wider text-zinc-500">
+                    <p className="text-xs text-zinc-500">
                       {person.field}
                     </p>
                   </div>
                 </div>
               </div>
-              <div className="mt-4 flex items-end justify-between">
-                <span className="font-display text-3xl font-extrabold text-amber-400">
+              <div className="mt-4 flex items-end justify-between gap-2">
+                <span className="font-display text-2xl font-bold text-amber-400 sm:text-3xl">
                   {person.salary}
                 </span>
-                <span className="text-right text-[11px] font-semibold uppercase tracking-wider text-zinc-400">
+                <span className="max-w-[45%] text-right text-xs font-semibold leading-snug text-zinc-400">
                   {person.company}
                 </span>
               </div>
@@ -772,10 +776,10 @@ export function WhyMaac() {
       <div className="mx-auto grid max-w-6xl gap-6 lg:grid-cols-2">
         <div>
           <span className="kicker">Your trusted training partner</span>
-          <h2 className="mt-3 font-display text-3xl font-extrabold text-white sm:text-4xl">
+          <h2 className="text-display mt-3 text-[1.75rem] font-bold text-white sm:text-4xl">
             Why learn at <span className="gold-gradient-text">MAAC?</span>
           </h2>
-          <p className="mt-2 text-sm text-zinc-400">
+          <p className="text-body mt-2.5 text-[0.9375rem] text-zinc-400 sm:text-base">
             Empower your future with skills that matter — proudly partnered with
             MESC under the Skill India Mission.
           </p>
@@ -807,14 +811,16 @@ export function WhyMaac() {
                     <span className="flex h-8 w-8 items-center justify-center rounded-lg bg-zinc-800 text-xs font-bold text-amber-400">
                       0{index + 1}
                     </span>
-                    <span className="text-xs font-bold text-white">{item.title}</span>
+                    <span className="min-w-0 pr-2 text-sm font-semibold leading-snug text-white">
+                      {item.title}
+                    </span>
                   </div>
                   <IconChevron
-                    className={`h-3.5 w-3.5 text-zinc-500 transition ${active ? "rotate-90" : ""}`}
+                    className={`h-3.5 w-3.5 flex-shrink-0 text-zinc-500 transition ${active ? "rotate-90" : ""}`}
                   />
                 </div>
                 {active ? (
-                  <p className="mt-2 pl-11 text-[11px] leading-relaxed text-zinc-400">
+                  <p className="text-body mt-2 pl-11 text-sm text-zinc-400">
                     {item.detail}
                   </p>
                 ) : null}
@@ -887,14 +893,14 @@ export function QuizBanner() {
           <div className="pointer-events-none absolute -right-10 -top-10 h-32 w-32 rounded-full bg-amber-500/15 blur-2xl" />
           <div className="mb-2 flex items-center gap-2">
             <span className="h-2 w-2 animate-ping rounded-full bg-amber-400" />
-            <span className="text-[10px] font-extrabold uppercase tracking-widest text-amber-400">
+            <span className="text-[0.6875rem] font-semibold uppercase tracking-[0.06em] text-amber-400">
               Interactive career matcher
             </span>
           </div>
-          <h3 className="mb-1 font-display text-xl font-black text-white">
+          <h3 className="text-display mb-1.5 text-xl font-bold text-white sm:text-2xl">
             Not sure which creative track fits you?
           </h3>
-          <p className="mb-4 text-xs text-zinc-400">
+          <p className="text-body mb-4 text-sm text-zinc-400">
             Answer 3 quick questions and get a course recommendation plus an
             indicative scholarship score (up to 35%).
           </p>
@@ -911,7 +917,7 @@ export function QuizBanner() {
             ))}
           </div>
           <button
-            className="flex w-full items-center justify-center gap-2 rounded-xl bg-gradient-to-r from-amber-400 to-yellow-500 px-4 py-3 text-xs font-extrabold uppercase tracking-wider text-black shadow-gold-glow"
+            className="flex w-full items-center justify-center gap-2 rounded-xl bg-gradient-to-r from-amber-400 to-yellow-500 px-4 py-3 text-sm font-bold uppercase tracking-[0.04em] text-black shadow-gold-glow"
             onClick={openQuiz}
             type="button"
           >
@@ -931,8 +937,10 @@ export function Centres() {
   return (
     <section className="px-4 py-12 sm:px-6 sm:py-16 lg:px-10" id="centres">
       <div className="mx-auto max-w-6xl">
-        <h2 className="font-display text-2xl font-black text-white">Locate a centre</h2>
-        <p className="mt-1 mb-4 text-xs text-zinc-400">
+        <h2 className="text-display text-[1.65rem] font-bold text-white sm:text-3xl">
+          Locate a centre
+        </h2>
+        <p className="text-body mt-1.5 mb-4 text-sm text-zinc-400">
           Pick a state to preview nearby MAAC centres. Final availability is
           confirmed on the counseling call.
         </p>
@@ -973,24 +981,24 @@ export function Faq() {
   return (
     <section className="px-4 py-12 sm:px-6 sm:py-16 lg:px-10" id="faq">
       <div className="mx-auto max-w-3xl">
-        <h2 className="mb-4 font-display text-2xl font-black text-white">
+        <h2 className="text-display mb-4 text-[1.65rem] font-bold text-white sm:text-3xl">
           Frequently asked questions
         </h2>
         <div className="space-y-2">
           {faqs.map((item, index) => (
             <div key={item.q} className="overflow-hidden rounded-xl border border-zinc-800 bg-zinc-900">
               <button
-                className="flex w-full items-center justify-between px-4 py-3 text-left text-sm font-semibold text-white"
+                className="flex w-full items-start justify-between gap-3 px-4 py-3.5 text-left text-sm font-semibold leading-snug text-white"
                 onClick={() => setOpen(open === index ? -1 : index)}
                 type="button"
               >
-                {item.q}
+                <span className="min-w-0">{item.q}</span>
                 <IconChevron
-                  className={`h-4 w-4 text-amber-400 transition ${open === index ? "rotate-90" : ""}`}
+                  className={`mt-0.5 h-4 w-4 flex-shrink-0 text-amber-400 transition ${open === index ? "rotate-90" : ""}`}
                 />
               </button>
               {open === index ? (
-                <p className="px-4 pb-3 text-xs leading-relaxed text-zinc-400">{item.a}</p>
+                <p className="text-body px-4 pb-3.5 text-sm text-zinc-400">{item.a}</p>
               ) : null}
             </div>
           ))}
@@ -1012,15 +1020,15 @@ export function Enquiry() {
           <Image alt="MAAC students" className="object-cover object-top" src="/images/workshop.jpg" fill sizes="400px" />
           <div className="absolute inset-0 bg-gradient-to-t from-zinc-950 via-zinc-950/30 to-transparent" />
           <div className="absolute bottom-2 left-3">
-            <span className="text-[10px] font-bold uppercase tracking-wider text-amber-400">
+            <span className="text-[0.6875rem] font-semibold uppercase tracking-[0.06em] text-amber-400">
               Start your MAAC journey
             </span>
-            <h3 className="font-display text-lg font-extrabold text-white">
+            <h3 className="text-display text-lg font-bold text-white sm:text-xl">
               Get in touch to get ahead
             </h3>
           </div>
         </div>
-        <p className="mb-4 text-sm text-zinc-400">
+        <p className="text-body mb-4 text-sm text-zinc-400">
           You&apos;re one step away from turning passion into a profession —
           reach out now.
         </p>
