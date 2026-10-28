@@ -2,7 +2,7 @@ export const PHONE = "18002096222";
 export const PHONE_DISPLAY = "1-800-209-6222";
 export const MOBILE = "8448441607";
 export const MOBILE_DISPLAY = "8448 441 607";
-export const EMAIL = "info@maacmail.com";
+export const EMAIL = "greaternoida@maacmail.com";
 export const OFFICIAL_SITE = "https://www.maacindia.com/";
 export const SCHOLARSHIP_DEADLINE = "2026-10-31T23:59:59+05:30";
 

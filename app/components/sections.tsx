@@ -13,8 +13,6 @@ import {
   OFFICIAL_SITE,
   MOBILE,
   MOBILE_DISPLAY,
-  PHONE,
-  PHONE_DISPLAY,
   SCHOLARSHIP_DEADLINE,
   studentWork,
   studios,
@@ -1116,10 +1114,9 @@ export function Footer() {
             <a className="text-sm font-bold text-amber-300" href={`tel:${MOBILE}`}>
               {MOBILE_DISPLAY}
             </a>
-            <a className="mt-0.5 block text-xs text-rose-100/80" href={`tel:${PHONE}`}>
-              Toll-free {PHONE_DISPLAY}
+            <a className="mt-0.5 block text-xs text-rose-100/80" href={`mailto:${EMAIL}`}>
+              {EMAIL}
             </a>
-            <div className="text-[10px] text-rose-200">{EMAIL}</div>
           </div>
           <div className="flex h-14 w-14 flex-col items-center justify-center rounded-full border-2 border-dashed border-rose-300 p-1 text-center">
             <span className="text-[7px] font-black uppercase text-amber-300">Official</span>
